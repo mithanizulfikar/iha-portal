@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+vendor
+.git
+.vercel
+tests
+docs
+deploy
+*.zip
+composer.phar
+storage/logs/*
+storage/backups/*
+storage/uploads/*
+storage/generated/*

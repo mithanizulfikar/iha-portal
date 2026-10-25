@@ -1,0 +1,21 @@
+{
+  "name": "iha/student-portal",
+  "description": "IHA Student Registration, Eligibility & QR Verification Portal",
+  "type": "project",
+  "require": {
+    "php": ">=8.2",
+    "ext-pdo": "*",
+    "ext-pdo_pgsql": "*",
+    "ext-mbstring": "*",
+    "chillerlan/php-qrcode": "^5.0",
+    "phpmailer/phpmailer": "^6.9"
+  },
+  "autoload": {
+    "psr-4": { "Iha\\": "src/" }
+  },
+  "scripts": {
+    "migrate": "php bin/migrate.php",
+    "seed": "php bin/seed.php",
+    "smoke": "php tests/db_smoke.php"
+  }
+}

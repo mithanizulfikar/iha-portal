@@ -1,0 +1,45 @@
+:root {
+  --iha-navy: #12355b;
+  --iha-navy-dark: #0c2440;
+  --iha-gold: #c8a24a;
+}
+.iha-nav { background: var(--iha-navy); }
+.iha-footer { background: var(--iha-navy-dark); color: #d6deea; }
+.iha-footer a { color: #fff; text-decoration: none; }
+.iha-footer a:hover { text-decoration: underline; }
+.hero { background: linear-gradient(135deg, var(--iha-navy) 0%, var(--iha-navy-dark) 100%); }
+.hero-lead { max-width: 40rem; }
+.instructions li { margin-bottom: .5rem; }
+.legal { max-width: 52rem; }
+.btn-primary { --bs-btn-bg: var(--iha-navy); --bs-btn-border-color: var(--iha-navy);
+  --bs-btn-hover-bg: var(--iha-navy-dark); --bs-btn-hover-border-color: var(--iha-navy-dark);
+  --bs-btn-active-bg: var(--iha-navy-dark); --bs-btn-active-border-color: var(--iha-navy-dark); }
+.btn-outline-primary { --bs-btn-color: var(--iha-navy); --bs-btn-border-color: var(--iha-navy);
+  --bs-btn-hover-bg: var(--iha-navy); --bs-btn-hover-border-color: var(--iha-navy); }
+a { color: var(--iha-navy); }
+
+/* registration steps */
+.step { color: #495057; background: #fff; }
+.step:hover { background: #f1f4f8; }
+.step-num { display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem;
+  border-radius: 50%; background: #dee2e6; font-weight: 600; font-size: .85rem; flex: none; }
+.step-current { border-color: var(--iha-navy) !important; box-shadow: 0 0 0 1px var(--iha-navy); }
+.step-current .step-num { background: var(--iha-navy); color: #fff; }
+.step-done .step-num { background: #198754; color: #fff; }
+.step-label { font-size: .9rem; }
+.col-marks { width: 9rem; }
+.col-pct { width: 8rem; }
+.progress-bar { background-color: var(--iha-navy); }
+.progress-w-0 { width: 0; } .progress-w-20 { width: 20%; } .progress-w-40 { width: 40%; }
+.progress-w-60 { width: 60%; } .progress-w-80 { width: 80%; } .progress-w-100 { width: 100%; }
+
+/* QR, verification and ID card */
+.qr-img { image-rendering: pixelated; background: #fff; padding: 6px; border: 1px solid #dee2e6; border-radius: .25rem; }
+.verify-mark { font-size: 4rem; line-height: 1; }
+.id-card { width: 22rem; max-width: 100%; border: 2px solid var(--iha-navy); border-radius: .75rem; overflow: hidden; background: #fff; }
+.id-card-head { background: var(--iha-navy); color: #fff; padding: .6rem 1rem; }
+.id-card-body { padding: 1rem; }
+@media print {
+  .iha-nav, .iha-footer, .no-print, .alert, form, .btn, .pagination { display: none !important; }
+  body { background: #fff; }
+}

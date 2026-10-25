@@ -1,0 +1,19 @@
+# Container image for Vercel (FrankenPHP = PHP + Caddy). Follows Vercel's "Deploy PHP on Vercel with Docker" guide.
+# Untested on a real Vercel project: deploy a PREVIEW first and check /health (see docs/GIT_AND_VERCEL.md).
+FROM composer:2 AS dependencies
+WORKDIR /app
+COPY composer.json composer.lock* ./
+# The PHP extensions exist in the runtime image below, not in this build stage.
+RUN composer install --no-dev --no-interaction --no-progress --optimize-autoloader --no-scripts --ignore-platform-reqs
+
+FROM dunglas/frankenphp:1-php8.3-alpine
+RUN install-php-extensions pdo_pgsql pgsql mbstring \
+    && cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+WORKDIR /app
+COPY --from=dependencies /app/vendor ./vendor
+COPY . .
+COPY Caddyfile /etc/caddy/Caddyfile
+# The container disk is temporary: nothing important may be stored there (sessions use the database, mail uses SMTP, errors go to stderr).
+RUN mkdir -p storage/logs storage/generated storage/uploads
+ENV PORT=80 APP_ENV=production SESSION_DRIVER=database
+CMD ["frankenphp", "run", "--config", "/etc/caddy/Caddyfile"]

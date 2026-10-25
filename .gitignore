@@ -1,0 +1,13 @@
+.env
+/vendor/
+/storage/uploads/*
+/storage/generated/*
+/storage/logs/*
+/storage/backups/*
+!/storage/**/.gitkeep
+composer.phar
+composer-setup.php
+*.zip
+.vercel
+.env.*
+!.env.example
